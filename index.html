@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my doc</title>
+</head>
+<body>
+    <script>
+        // Grading Students
+        let gradess = [73, 67, 33, 80,38, 82, 82, 81]
+         
+        function gradingStudents(grades) {
+    // Write your code here
+    let finalGrade;
+    let finalGrades=grades.map(grade =>{
+        if(grade < 38){
+           finalGrade = grade ;
+    }
+       else if(grade >= 38){
+                        let roundUpByMultipleOf5 = Math.ceil(grade / 5) * 5;
+                        let difference = roundUpByMultipleOf5 - grade;
+                        finalGrade = difference < 3 ? roundUpByMultipleOf5 : grade;  
+        } 
+        
+        return finalGrade  
+    });
+    return finalGrades ;       
+}
+gradingStudents(gradess)
+
+
+// Sales by Match
+const socks = [1, 5, 2, 1, 6, 2, 2, 9,9,6];
+let len = socks.length
+function sockMerchant(n, ar) {
+    // Write your code here
+ let numOfPairs = 0
+ let socksCopy = ar.slice()
+ socksCopy.sort((a,b) => a-b)
+ for(let i=0; i < n; i++){
+    if(socksCopy[i] === socksCopy[i+1]){
+        i++;
+        numOfPairs++;
+    }
+ }
+ return numOfPairs;
+}
+// console.log(sockMerchant(len,socks));
+
+
+// Counting Valleys
+let str ='DDUUUUDDDDUU'
+let steps = str.length;
+
+function countingValleys(steps, path) {
+     
+    let numOfValleys = 0
+    let belowSeaLevel = 0
+    for(let i=0; i<steps; i++){
+        let char = path.charAt(i)
+        if (char==='D'){
+            belowSeaLevel--;
+        }
+        else {belowSeaLevel++}
+        if (belowSeaLevel === 0 && char === 'U'){
+            numOfValleys++;
+        }else if(belowSeaLevel > 0){continue;}
+    }
+    // console.log(belowSeaLevel)
+    // console.log(numOfValleys)
+return numOfValleys
+}
+countingValleys(steps, str)
+
+// clouds
+let arr3= [0,0,0,1,0]
+function clouds (c){
+    let jumps = 0;
+for (let i=0; i<c.length; i++){
+ if(c[i+1] === 0){
+    jumps++;
+}else if(c[i+1] === 1){continue}
+
+}
+return jumps;
+}
+clouds(arr3)
+// find digits
+let value = 1240;
+
+        function findDigits(n) {
+    // Write your code here
+    let numberOfDivisors = 0
+        let arr = String(n).split("").map((n)=>{ 
+        return Number(n);
+        
+       })
+        
+ for(let i=0; i<arr.length; i++){
+    let result = n % arr[i];
+    if(result == 0){
+        numberOfDivisors++
+    }  
+ }
+//  console.log(numberOfDivisors)
+ return numberOfDivisors 
+ 
+}
+  findDigits(value) 
+  
+//   cat and mouse
+
+function catAndMouse(x, y, z) {
+let stringOne = 'Cat A'
+let stringTwo = 'Cat B'
+let stringThree = 'Mouse C'
+let catA=Math.abs(z-x);
+let catB=Math.abs(z-y);
+ if(catA < catB){
+    return stringOne
+ }else if(catB < catA){
+    return stringTwo
+ }else{return stringThree}
+}
+// console.log(catAndMouse(4,2,3))
+
+// Extra Long Factorials
+function extraLongFactorials(n) {
+    // Write your code
+     
+    let factorialArr = []
+for(let i=0; i<=n-1; i++){
+    
+    let values = n-i
+    factorialArr.push(values)
+    }
+      
+   let result =  factorialArr.reduce((a,b) => a*b)
+    console.log(factorialArr)
+    let finalResult = n<=20 ? result : BigInt(result)
+    return finalResult
+ }
+// console.log(extraLongFactorials(5))
+    </script>
+    <script>
+        // Minumum distances
+        function minimumDistances(a) {
+    // Write your code here
+    let distance = [];
+  let difference = 0;
+  for(let i=0; i<a.length; i++){
+    
+    for(let j=0; j<a.length; j++){
+        
+        if(a[i]== a[j] && i !=j ){
+          difference= i - j;
+          if(difference < 0){
+            difference = difference * -1;
+          }
+          distance.push(difference);
+        }
+    }
+  }
+  distance.sort()
+  if(distance.length == 0 ){
+    return -1
+   }
+}
+    </script>
+
+     
+
+ <script>
+    // Sherlock and Squares
+    
+        function squares(a, b) {
+            let newArr1 = []
+            let newArr2;
+            let squareIntegers = 0;
+     
+        for(let j=0; j<b; j++){
+                let value= a+j
+                if (value > b){break}
+                newArr1.push(value)  
+                newArr2=newArr1.filter(item => item<=b) 
+               let num = Math.sqrt(newArr2[j])
+               if(typeof num == 'number' && !isNaN(num)){
+                  if (Number.isInteger(num)) {
+                     squareIntegers++
+                   }
+               }
+              
+             }    
+    return squareIntegers
+}
+//  console.log(squares(17, 24))
+
+//  Pick Numbers
+let picArr = [1,1,2,2,4,4,5,5,5]
+function pickingNumbers(a) {
+    // Write your code here
+    for(let i = 0; i<a.length; i++){
+        for(let j = o; j<a.length; j++){
+            let difference = abs(a[i] - a[j] && i != j)
+            if (difference <=1 ){
+
+            }
+        }
+    }
+}
+// console.log(pickingNumbers(picArr))
+
+// Library Fine
+function libraryFine(d1, m1, y1, d2, m2, y2) {
+    // Write your code here
+    let fine;
+    let numOfDaysLate = d1 - d2;
+    let numOfMonthsLate = m1 - m2;
+    if(d1 <= d2 && m1 <= m2 && y1 <= y2){fine = 0}
+    if(d1 > d2 && m1 <= m2 && y1 <= y2){
+        fine = 15 * numOfDaysLate;
+    }
+    if(m1 > m2 && y1 <= y2){
+        fine = 500 * numOfMonthsLate;
+    }
+    if(m1 < m2){fine = 0}
+    if(y1 < y2){fine = 0}
+    if(y1 > y2){fine = 10000}
+   return fine;
+}
+// console.log(libraryFine(28, 2, 2015, 15, 4, 2015))
+
+// Cut the sticks
+let sticks = [5,4,4,2,2,8]
+function cutTheSticks(arr) {
+    // Write your code here
+     
+    
+    let sticksCut = [arr.length];
+    let mainArr = arr
+     
+    let newArr;
+    let minValue = function( array ){
+    return Math.min.apply( Math, array );
+};;
+    
+    for(let i = 0; i<mainArr.length; i++){
+        newArr =  mainArr.filter((item) => item - minValue(mainArr) > 0) 
+        mainArr = newArr
+        if(mainArr.length > 0){
+         mainArr =   mainArr.filter((item) => item - minValue(mainArr) > 0) 
+        }
+        
+        
+    }
+      return sticksCut
+}
+ console.log(cutTheSticks(sticks))
+ </script>
+</body>
+</html>
